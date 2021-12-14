@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aspnet-deployment
+spec:
+  selector:
+    matchLabels:
+      app: aspnet
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: aspnet
+    spec:
+      containers:
+      - name: aspnet
+        image: dyvosvit/aspnet:1.0
+        ports:
+        - containerPort: 8080
